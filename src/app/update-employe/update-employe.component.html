@@ -1,0 +1,63 @@
+<div class="container">
+  <div>
+    <h2>Modifier un employe :</h2>
+  </div>
+  <form>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+      <label>ID employe</label>
+      <input
+        readonly
+        type="text"
+        [(ngModel)]="currentEmploye.idEmploye"
+        name="idEmploye"
+        class="form-control"
+      />
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <label>Nom employe</label>
+      <input
+        type="text"
+        [(ngModel)]="currentEmploye.nomEmploye"
+        name="nomEmploye"
+        class="form-control"
+      />
+    </div>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+      <label>salaire employe</label>
+      <input
+        type="number"
+        [(ngModel)]="currentEmploye.salaireEmploye"
+        name="salaireEmploye"
+        class="form-control"
+      />
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <label>Date employe</label>
+      <input
+        type="date"
+        [ngModel]="currentEmploye.dateEmploye | date : 'yyyy-MM-dd'"
+        (ngModelChange)="currentEmploye.dateEmploye = $event"
+        name="dateEmploye"
+        class="form-control"
+      />
+    </div>
+
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <select
+        class="form-control form-control-lg"
+        id="idPoste"
+        name="idPoste"
+        [(ngModel)]="updatedPostetId"
+      >
+        <option *ngFor="let po of poste" [value]="po.idPoste">
+          {{ po.nomPoste }}
+        </option>
+      </select>
+    </div>
+    <div class="mt-2">
+      <button type="submit" (click)="updateEmploye()" class="btn btn-success">
+        Modifer
+      </button>
+    </div>
+  </form>
+</div>
