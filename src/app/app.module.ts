@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { EmployeComponent } from './employe/employe.component';
 import { AddEmployeComponent } from './add-employe/add-employe.component';
 import { UpdateEmployeComponent } from './update-employe/update-employe.component';
+import { RechercheParPosteComponent } from './recherche-par-poste/recherche-par-poste.component';
 
 
 
@@ -15,7 +16,8 @@ import { UpdateEmployeComponent } from './update-employe/update-employe.componen
     AppComponent,
     EmployeComponent,
     AddEmployeComponent,
-    UpdateEmployeComponent
+    UpdateEmployeComponent,
+    RechercheParPosteComponent
   ],
   imports: [
     BrowserModule,

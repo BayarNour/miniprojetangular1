@@ -11,8 +11,8 @@ import {Poste}from '../model/poste.model';
 
 export class EmployeService {
     employe:Employe[];
-    poste! : Poste[];
-
+    poste :Poste[];
+    employeRecherche: Employe[] = [];
     constructor() { 
       this.poste=[{idPoste : 1, nomPoste:"Secrétaire administratif"},
                   {idPoste:2,nomPoste:"Responsable RH"}
@@ -75,6 +75,20 @@ export class EmployeService {
         this.ajouterEmploye(e);
         this.trierEmploye();
         }
+
+
+
+        rechercherParPoste(idPoste: number): Employe[]{
+          this.employeRecherche = [];
+
+          this.employe.forEach((cur, index) => {
+          if(idPoste == cur.poste.idPoste) {
+            console.log("cur "+cur);
+            this.employeRecherche.push(cur);
+            }
+          });
+          return this.employeRecherche;
+          }
         
 
   }
