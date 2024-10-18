@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Employe } from '../model/employe.model';
+import { Observable, of } from 'rxjs';
 import {Poste}from '../model/poste.model';
 
 
@@ -27,6 +28,9 @@ export class EmployeService {
       {idEmploye :3, nomEmploye : "mohamed tounsi" , salaireEmploye : 1800.000, dateEmploye : new Date("09/19/2023"), poste:{idPoste:1 , nomPoste:"Secrétaire administratif"}}
  ];
   }
+  listEmploye():Employe[]{
+    return this.employe;
+  }
 
   listePoste():Poste[] {
     return this.poste;
@@ -38,9 +42,6 @@ export class EmployeService {
 
 
 
-  listEmploye():Employe[]{
-    return this.employe;
-  }
   ajouterEmploye(emp:Employe){
     this.employe.push(emp);
   }

@@ -7,6 +7,8 @@ import { EmployeComponent } from './employe/employe.component';
 import { AddEmployeComponent } from './add-employe/add-employe.component';
 import { UpdateEmployeComponent } from './update-employe/update-employe.component';
 import { RechercheParPosteComponent } from './recherche-par-poste/recherche-par-poste.component';
+import { RechercheParNomComponent } from './recherche-par-nom/recherche-par-nom.component';
+import { SearchFilterPipe } from './search-filter.pipe';
 
 
 
@@ -17,7 +19,9 @@ import { RechercheParPosteComponent } from './recherche-par-poste/recherche-par-
     EmployeComponent,
     AddEmployeComponent,
     UpdateEmployeComponent,
-    RechercheParPosteComponent
+    RechercheParPosteComponent,
+    RechercheParNomComponent,
+    SearchFilterPipe
   ],
   imports: [
     BrowserModule,

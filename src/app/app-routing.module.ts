@@ -4,7 +4,7 @@ import { EmployeComponent } from './employe/employe.component';
 import { AddEmployeComponent } from './add-employe/add-employe.component';
 import { UpdateEmployeComponent } from './update-employe/update-employe.component';
 import { RechercheParPosteComponent } from './recherche-par-poste/recherche-par-poste.component';
-
+import { RechercheParNomComponent } from './recherche-par-nom/recherche-par-nom.component';
 
 
 const routes: Routes = [
@@ -12,6 +12,8 @@ const routes: Routes = [
   {path: "add-employe", component : AddEmployeComponent},
   {path: "updatEmploye/:id", component: UpdateEmployeComponent},
   {path: "rechercheParPoste", component : RechercheParPosteComponent},
+  {path: "rechercheParNom", component : RechercheParNomComponent},
+
   { path: "", redirectTo: "employe", pathMatch: "full" }
 
 
