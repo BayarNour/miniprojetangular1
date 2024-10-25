@@ -23,9 +23,9 @@ export class EmployeService {
 
 
 
-    this.employe = [{idEmploye : 1, nomEmploye : "amira ben salah" , salaireEmploye : 2000.000, dateEmploye : new Date("02/10/2021"), poste:{idPoste:1 , nomPoste:"Secrétaire administratif"}},
-      {idEmploye :2, nomEmploye : "youssef zribi" , salaireEmploye : 2500.000, dateEmploye : new Date("12/20/2022"), poste:{idPoste:2 , nomPoste:"Responsable RH"}},
-      {idEmploye :3, nomEmploye : "mohamed tounsi" , salaireEmploye : 1800.000, dateEmploye : new Date("09/19/2023"), poste:{idPoste:1 , nomPoste:"Secrétaire administratif"}}
+    this.employe = [{idEmploye : 1, nomEmploye : "amira ben salah" , salaireEmploye : 2000.000, dateEmploye : new Date("02/10/2021"), poste:{idPoste:1 , nomPoste:"Secrétaire administratif"},emailEmploye:"amirabensalah4@gmail.com",enable:false},
+      {idEmploye :2, nomEmploye : "youssef zribi" , salaireEmploye : 2500.000, dateEmploye : new Date("12/20/2022"), poste:{idPoste:2 , nomPoste:"Responsable RH"},emailEmploye:"youssefzribi79@gmail.com",enable:false},
+      {idEmploye :3, nomEmploye : "mohamed tounsi" , salaireEmploye : 1800.000, dateEmploye : new Date("09/19/2023"), poste:{idPoste:1 , nomPoste:"Secrétaire administratif"},emailEmploye:"mohamedtounsi653@gmail.com",enable:false}
  ];
   }
   listEmploye():Employe[]{

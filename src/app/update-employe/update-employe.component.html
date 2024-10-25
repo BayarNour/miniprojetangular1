@@ -11,8 +11,19 @@
         [(ngModel)]="currentEmploye.idEmploye"
         name="idEmploye"
         class="form-control"
+        required
       />
     </div>
+    <span
+      *ngIf="
+        myForm.controls['idEmploye'].hasError('required') &&
+        myForm.controls['idEmploye'].touched
+      "
+      class="text-danger"
+    >
+      id employe est obligatoire
+    </span>
+
     <div class="col-sm-4 col-md-4 col-lg-4">
       <label>Nom employe</label>
       <input
@@ -20,8 +31,30 @@
         [(ngModel)]="currentEmploye.nomEmploye"
         name="nomEmploye"
         class="form-control"
+        required
       />
     </div>
+
+    <span
+      *ngIf="
+        myForm.controls['nomEmploye'].hasError('required') &&
+        myForm.controls['nomEmploye'].touched
+      "
+      class="text-danger"
+    >
+      nomEmolpye est obligatoire
+    </span>
+
+    <span
+      *ngIf="
+        myForm.controls['nomEmploye'].hasError('minlength') &&
+        myForm.controls['nomEmploye'].touched
+      "
+      class="text-danger"
+    >
+      nom Employe doit contenir 12 caractères au moins
+    </span>
+
     <div class="col-sm-2 col-md-2 col-lg-2">
       <label>salaire employe</label>
       <input
@@ -29,8 +62,20 @@
         [(ngModel)]="currentEmploye.salaireEmploye"
         name="salaireEmploye"
         class="form-control"
+        required
       />
     </div>
+
+    <span
+      *ngIf="
+        myForm.controls['salaireEmploye'].hasError('required') &&
+        myForm.controls['salaireEmploye'].touched
+      "
+      class="text-danger"
+    >
+      salaire Emolpye est obligatoire
+    </span>
+
     <div class="col-sm-4 col-md-4 col-lg-4">
       <label>Date employe</label>
       <input
@@ -39,8 +84,18 @@
         (ngModelChange)="currentEmploye.dateEmploye = $event"
         name="dateEmploye"
         class="form-control"
+        required
       />
     </div>
+    <span
+      *ngIf="
+        myForm.controls['dateEmploye'].hasError('required') &&
+        myForm.controls['dateEmploye'].touched
+      "
+      class="text-danger"
+    >
+      date Emolpye est obligatoire
+    </span>
 
     <div class="col-sm-4 col-md-4 col-lg-4">
       <label>Poste employe</label>
@@ -49,12 +104,53 @@
         id="idPoste"
         name="idPoste"
         [(ngModel)]="updatedPostetId"
+        required
       >
         <option *ngFor="let po of poste" [value]="po.idPoste">
           {{ po.nomPoste }}
         </option>
       </select>
     </div>
+
+    <span
+      *ngIf="
+        myForm.controls['posteEmploye'].hasError('required') &&
+        myForm.controls['posteEmploye'].touched
+      "
+      class="text-danger"
+    >
+      post Employe est obligatoire
+    </span>
+
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <label>email Employe </label>
+      <input
+        type="text"
+        name="emailEmploye"
+        class="form-control"
+        formControlName="email"
+        [(ngModel)]="currentEmploye.emailEmploye"
+      />
+    </div>
+    <span
+      *ngIf="
+        myForm.controls['emailEmploye'].hasError('required') &&
+        myForm.controls['emailEmploye'].touched
+      "
+      class="text-danger"
+    >
+      email est obligatoire
+    </span>
+    <span
+      *ngIf="
+        myForm.controls['emailEmploye'].hasError('emailEmploye') &&
+        myForm.controls['emailEmploye'].touched
+      "
+      class="text-danger"
+    >
+      email non valide
+    </span>
+
     <div class="mt-2">
       <button type="submit" (click)="updateEmploye()" class="btn btn-success">
         Modifer

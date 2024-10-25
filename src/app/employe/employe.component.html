@@ -8,6 +8,7 @@
           <th>Salaire</th>
           <th>Date d'embauche</th>
           <th>Poste</th>
+          <th>Email</th>
         </tr>
         <tbody *ngFor="let employe of employe">
           <tr>
@@ -16,6 +17,8 @@
             <td>{{ employe.salaireEmploye }}</td>
             <td>{{ employe.dateEmploye | date : "dd/MM/yyyy" }}</td>
             <td>{{ employe.poste.nomPoste }}</td>
+            <td>{{ employe.emailEmploye }}</td>
+
             <td>
               <a class="btn btn-danger" (click)="supprimerEmploye(employe)"
                 >Supprimer</a

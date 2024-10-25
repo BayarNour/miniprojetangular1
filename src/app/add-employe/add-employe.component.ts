@@ -3,6 +3,8 @@ import { Employe } from '../model/employe.model';
 import { EmployeService } from '../services/employe.service';
 import { Router } from '@angular/router';
 import { Poste } from '../model/poste.model';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 
 
@@ -20,15 +22,26 @@ export class AddEmployeComponent implements OnInit {
   poste! : Poste[];
   newIdPoste! : number;
   newPoste! : Poste;
+  myForm!:FormGroup;
 
   constructor(private employeService: EmployeService ,
-     private router :Router) { }
+     private router :Router,
+     private formBuilder:FormBuilder
+     ) { }
   
   
   
   
   ngOnInit(): void {
     this.poste=this.employeService.listePoste();
+    this.myForm=this.formBuilder.group({
+      idEmploye:['',[Validators.required]],
+      emailEmploye:['',[Validators.required ,Validators.email]],
+     nomEmploye:['',[Validators.required,Validators.minLength(20)]],
+     prixEmploye:['',[Validators.required]],
+     dateEmploye:['',[Validators.required]],
+     poste:['',[Validators.required]]
+    });
   }
 
   addEmploye(){
