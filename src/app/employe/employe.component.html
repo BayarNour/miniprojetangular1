@@ -17,7 +17,7 @@
             <td>{{ employe.salaireEmploye }}</td>
             <td>{{ employe.dateEmploye | date : "dd/MM/yyyy" }}</td>
             <td>{{ employe.poste.nomPoste }}</td>
-            <td>{{ employe.emailEmploye }}</td>
+            <td>{{ employe.email }}</td>
 
             <td>
               <a class="btn btn-danger" (click)="supprimerEmploye(employe)"

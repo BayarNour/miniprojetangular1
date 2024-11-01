@@ -6,6 +6,6 @@ export class Employe {
     salaireEmploye! : number;
      dateEmploye! : Date ;
      poste!:Poste;
-     emailEmploye!:string;
+     email!:string;
      enable!:boolean;
     }

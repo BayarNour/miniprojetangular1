@@ -9,6 +9,7 @@
         type="text"
         [(ngModel)]="newEmploye.idEmploye"
         name="idEmploye"
+        formControlName="idEmploye"
         class="form-control"
       />
     </div>
@@ -27,6 +28,7 @@
         type="text"
         [(ngModel)]="newEmploye.nomEmploye"
         name="nomEmploye"
+        formControlName="nomEmploye"
         class="form-control"
       />
     </div>
@@ -47,6 +49,7 @@
         type="number"
         [(ngModel)]="newEmploye.salaireEmploye"
         name="salaireEmploye"
+        formControlName="salaireEmploye"
         class="form-control"
       />
     </div>
@@ -67,6 +70,7 @@
         type="date"
         [(ngModel)]="newEmploye.dateEmploye"
         name="dateEmploye"
+        formControlName="dateEmploye"
         class="form-control"
       />
     </div>
@@ -87,6 +91,7 @@
         class="form-control form-control-lg"
         id="idPoste"
         name="idPoste"
+        formControlName="nomPoste"
         [(ngModel)]="newIdPoste"
       >
         <option *ngFor="let po of poste" [value]="po.idPoste">
@@ -96,8 +101,8 @@
     </div>
     <span
       *ngIf="
-        myForm.controls['postEmploye'].hasError('required') &&
-        myForm.controls['postEmploye'].touched
+        myForm.controls['nomPoste'].hasError('required') &&
+        myForm.controls['nomPoste'].touched
       "
       class="text-danger"
     >
@@ -107,16 +112,16 @@
       <label>email Employe </label>
       <input
         type="text"
-        name="emailEmploye"
+        [(ngModel)]="newEmploye.email"
+        name="email"
         class="form-control"
-        formControlName="emailEmploye"
-        [(ngModel)]="newEmploye.emailEmploye"
+        formControlName="email"
       />
     </div>
     <span
       *ngIf="
-        myForm.controls['emailEmploye'].hasError('required') &&
-        myForm.controls['emailEmploye'].touched
+        myForm.controls['email'].hasError('required') &&
+        myForm.controls['email'].touched
       "
       class="text-danger"
     >
@@ -124,8 +129,8 @@
     </span>
     <span
       *ngIf="
-        myForm.controls['emailEmploye'].hasError('emailEmploye') &&
-        myForm.controls['emailEmploye'].touched
+        myForm.controls['email'].hasError('email') &&
+        myForm.controls['email'].touched
       "
       class="text-danger"
     >
@@ -133,7 +138,12 @@
     </span>
 
     <div class="mt-2">
-      <button type="submit" (click)="addEmploye()" class="btn btn-success">
+      <button
+        type="submit"
+        [disabled]="myForm.invalid"
+        (click)="addEmploye()"
+        class="btn btn-success"
+      >
         Ajouter
       </button>
     </div>

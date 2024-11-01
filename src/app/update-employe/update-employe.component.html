@@ -2,7 +2,7 @@
   <div>
     <h2>Modifier un employe :</h2>
   </div>
-  <form>
+  <form [formGroup]="myForm">
     <div class="col-sm-2 col-md-2 col-lg-2">
       <label>ID employe</label>
       <input
@@ -10,6 +10,7 @@
         type="text"
         [(ngModel)]="currentEmploye.idEmploye"
         name="idEmploye"
+        formControlName="idEmploye"
         class="form-control"
         required
       />
@@ -28,8 +29,10 @@
       <label>Nom employe</label>
       <input
         type="text"
+        formControlName="nomEmploye"
         [(ngModel)]="currentEmploye.nomEmploye"
         name="nomEmploye"
+        formControlName="nomEmploye"
         class="form-control"
         required
       />
@@ -59,8 +62,10 @@
       <label>salaire employe</label>
       <input
         type="number"
+        formControlName="salaireEmploye"
         [(ngModel)]="currentEmploye.salaireEmploye"
         name="salaireEmploye"
+        formControlName="salaireEmploye"
         class="form-control"
         required
       />
@@ -80,9 +85,11 @@
       <label>Date employe</label>
       <input
         type="date"
+        formControlName="dateEmploye"
         [ngModel]="currentEmploye.dateEmploye | date : 'yyyy-MM-dd'"
         (ngModelChange)="currentEmploye.dateEmploye = $event"
         name="dateEmploye"
+        formControlName="dateEmploye"
         class="form-control"
         required
       />
@@ -103,8 +110,8 @@
         class="form-control form-control-lg"
         id="idPoste"
         name="idPoste"
+        formControlName="nomPoste"
         [(ngModel)]="updatedPostetId"
-        required
       >
         <option *ngFor="let po of poste" [value]="po.idPoste">
           {{ po.nomPoste }}
@@ -114,8 +121,8 @@
 
     <span
       *ngIf="
-        myForm.controls['posteEmploye'].hasError('required') &&
-        myForm.controls['posteEmploye'].touched
+        myForm.controls['nomPoste'].hasError('required') &&
+        myForm.controls['nomPoste'].touched
       "
       class="text-danger"
     >
@@ -126,16 +133,16 @@
       <label>email Employe </label>
       <input
         type="text"
-        name="emailEmploye"
+        name="email"
         class="form-control"
         formControlName="email"
-        [(ngModel)]="currentEmploye.emailEmploye"
+        [(ngModel)]="currentEmploye.email"
       />
     </div>
     <span
       *ngIf="
-        myForm.controls['emailEmploye'].hasError('required') &&
-        myForm.controls['emailEmploye'].touched
+        myForm.controls['email'].hasError('required') &&
+        myForm.controls['email'].touched
       "
       class="text-danger"
     >
@@ -143,8 +150,8 @@
     </span>
     <span
       *ngIf="
-        myForm.controls['emailEmploye'].hasError('emailEmploye') &&
-        myForm.controls['emailEmploye'].touched
+        myForm.controls['email'].hasError('email') &&
+        myForm.controls['email'].touched
       "
       class="text-danger"
     >
@@ -152,7 +159,12 @@
     </span>
 
     <div class="mt-2">
-      <button type="submit" (click)="updateEmploye()" class="btn btn-success">
+      <button
+        type="submit"
+        [disabled]="myForm.invalid"
+        (click)="updateEmploye()"
+        class="btn btn-success"
+      >
         Modifer
       </button>
     </div>

@@ -31,12 +31,11 @@ export class UpdateEmployeComponent implements OnInit {
 
     this.myForm = this.formBuilder.group({
       idEmploye: ['', [Validators.required]],
-      emailEmploye: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required, Validators.email]],
       nomEmploye: ['', [Validators.required, Validators.minLength(5)]],
-      prixEmploye: ['', [Validators.required]],
+      salaireEmploye: ['', [Validators.required]],
       dateEmploye: ['', [Validators.required]],
-      idPoste: ['', [Validators.required]] // Changer 'posteEmploye' en 'idPoste' pour correspondre au HTML
-  });
+      nomPoste: ['', [Validators.required]]  });
     
 
     this.currentEmploye = this.employeService.consulterEmploye(this.activatedRoute.snapshot. params['id']);

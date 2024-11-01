@@ -3,7 +3,7 @@ import { Employe } from '../model/employe.model';
 import { EmployeService } from '../services/employe.service';
 import { Router } from '@angular/router';
 import { Poste } from '../model/poste.model';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl,FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 
@@ -36,11 +36,11 @@ export class AddEmployeComponent implements OnInit {
     this.poste=this.employeService.listePoste();
     this.myForm=this.formBuilder.group({
       idEmploye:['',[Validators.required]],
-      emailEmploye:['',[Validators.required ,Validators.email]],
-     nomEmploye:['',[Validators.required,Validators.minLength(20)]],
-     prixEmploye:['',[Validators.required]],
+      email:['',[Validators.required ,Validators.email]],
+     nomEmploye:['',[Validators.required,Validators.minLength(5)]],
+     salaireEmploye:['',[Validators.required]],
      dateEmploye:['',[Validators.required]],
-     poste:['',[Validators.required]]
+     nomPoste:['',[Validators.required]]
     });
   }
 
