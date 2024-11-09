@@ -1,5 +1,6 @@
 import { Component ,OnInit } from '@angular/core';
 import { Employe } from '../model/employe.model';
+import { AuthService } from '../services/auth.service';
 import { EmployeService } from '../services/employe.service';
 
 
@@ -11,7 +12,7 @@ import { EmployeService } from '../services/employe.service';
 export class EmployeComponent implements OnInit {
   employe? : Employe[];
 
-  constructor(private employeService: EmployeService) {
+  constructor(private employeService: EmployeService,public authService: AuthService) {
 
     }
     ngOnInit():void {
