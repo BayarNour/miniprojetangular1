@@ -8,6 +8,7 @@ import { RechercheParNomComponent } from './recherche-par-nom/recherche-par-nom.
 import { LoginComponent } from './login/login.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component'; 
 import { employeGuard } from './employe.guard';
+import { ListePosteComponent } from './liste-poste/liste-poste.component';
 
 const routes: Routes = [
   {path: "employe", component : EmployeComponent},
@@ -17,6 +18,8 @@ const routes: Routes = [
   {path: "rechercheParNom", component : RechercheParNomComponent},
   {path: 'login', component: LoginComponent},
   {path: 'app-forbidden', component: ForbiddenComponent},
+  {path: "listePoste", component : ListePosteComponent},
+
 
   { path: "", redirectTo: "employe", pathMatch: "full" }
 

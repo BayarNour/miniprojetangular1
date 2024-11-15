@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+        <app-update-poste
+          poste[]="updatedPoss"
+          (posteUpdated)="posteUpdated($event)"
+          [ajout]="ajout"
+        ></app-update-poste>
+      </div>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Nom Poste</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let poss of poste">
+          <tr>
+            <td>{{ poss.idPoste }}</td>
+            <td>{{ poss.nomPoste }}</td>
+            <td>
+              <a class="btn btn-success" (click)="UpdatedPoss(poss)">Editer</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

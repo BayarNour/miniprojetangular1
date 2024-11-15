@@ -12,6 +12,8 @@ import { SearchFilterPipe } from './search-filter.pipe';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
+import { ListePosteComponent } from './liste-poste/liste-poste.component';
+import { UpdatePosteComponent } from './update-poste/update-poste.component';
 
 
 
@@ -26,7 +28,9 @@ import { ForbiddenComponent } from './forbidden/forbidden.component';
     RechercheParNomComponent,
     SearchFilterPipe,
     LoginComponent,
-    ForbiddenComponent
+    ForbiddenComponent,
+    ListePosteComponent,
+    UpdatePosteComponent
   ],
   imports: [
     BrowserModule,
