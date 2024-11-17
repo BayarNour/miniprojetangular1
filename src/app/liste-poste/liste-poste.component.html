@@ -3,7 +3,7 @@
     <div class="card-body">
       <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
         <app-update-poste
-          poste[]="updatedPoss"
+          [poste]="updatedPoss"
           (posteUpdated)="posteUpdated($event)"
           [ajout]="ajout"
         ></app-update-poste>

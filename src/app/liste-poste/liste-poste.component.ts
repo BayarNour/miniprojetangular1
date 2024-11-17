@@ -9,8 +9,8 @@ import { EmployeService } from '../services/employe.service';
   
 })
 export class ListePosteComponent implements OnInit {
-  poste! : Poste[];
-  updatedPoss: Poste = { idPoste: 0, nomPoste: '' };
+  poste : Poste[]=[];
+  updatedPoss: Poste = { "idPoste": 0, "nomPoste": '' };
   ajout:boolean=true;
 
 
@@ -24,7 +24,7 @@ ngOnInit(): void {
 
 }
 
-posteUpdated(poss:Poste){
+posteUpdated(poss:Poste):void{
   if (this.ajout) {
    this.employeService.ajouterPoste(poss);
  } else {

@@ -95,7 +95,7 @@ export class EmployeService {
           ajouterPoste( poss: Poste):Poste{
             const id = this.poste.length +1;
             poss.idPoste=id;
-            this.poste.push(poss);
+            this.poste.push({...poss});
             return poss;
           }
 
