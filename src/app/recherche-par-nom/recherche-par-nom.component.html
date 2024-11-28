@@ -13,12 +13,7 @@
   <form class="form-inline">
     <div class="form-group mx-sm-3 mb-2 mt-2">
       <label>Nom Employe en tapant</label>
-      <input
-        #nom
-        [(ngModel)]="searchTerm"
-        name="searchTerm"
-        class="form-control"
-      />
+      <input #nom [(ngModel)]="searchTerm" name="searchTerm" class="form-control" />
     </div>
   </form>
 
@@ -41,15 +36,16 @@
             <td>{{ employe.poste.nomPoste }}</td>
             <td>
               <a class="btn btn-danger" (click)="supprimerEmploye(employe)"
-                >Supprimer</a
-              >
+              >Supprimer</a
+            >
+              
             </td>
             <td>
               <a
-                class="btn btn-success"
-                [routerLink]="['/updatEmploye', employe.idEmploye]"
-                >Modifier</a
-              >
+              class="btn btn-success"
+              [routerLink]="['/updatEmploye', employe.idEmploye]"
+              >Modifier</a
+            >
             </td>
           </tr>
         </tbody>

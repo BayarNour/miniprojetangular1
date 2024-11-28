@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { ListePosteComponent } from './liste-poste/liste-poste.component';
 import { UpdatePosteComponent } from './update-poste/update-poste.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -36,7 +37,8 @@ import { UpdatePosteComponent } from './update-poste/update-poste.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     provideClientHydration()

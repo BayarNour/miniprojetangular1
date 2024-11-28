@@ -3,7 +3,7 @@
     <h2>Ajouter un Employé :</h2>
   </div>
   <form [formGroup]="myForm">
-    <div class="col-sm-2 col-md-2 col-lg-2">
+    <div hidden class="col-sm-2 col-md-2 col-lg-2">
       <label>ID Employe</label>
       <input
         type="text"
@@ -107,8 +107,13 @@
       class="text-danger"
     >
       post Emolpye est obligatoire
-    </span>
-    <div class="col-sm-4 col-md-4 col-lg-4">
+    </span> 
+
+
+
+
+    
+    <!-- <div class="col-sm-4 col-md-4 col-lg-4">
       <label>email Employe </label>
       <input
         type="text"
@@ -136,14 +141,9 @@
     >
       email non valide
     </span>
-
+ -->
     <div class="mt-2">
-      <button
-        type="submit"
-        [disabled]="myForm.invalid"
-        (click)="addEmploye()"
-        class="btn btn-success"
-      >
+      <button type="submit" (click)="addEmploye()" class="btn btn-success">
         Ajouter
       </button>
     </div>

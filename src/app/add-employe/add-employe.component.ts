@@ -33,7 +33,23 @@ export class AddEmployeComponent implements OnInit {
   
   
   ngOnInit(): void {
-    this.poste=this.employeService.listePoste();
+    /* this.employeService.listePoste().
+subscribe(postes => {console.log(postes);
+this.poste = postes._embedded.poste;
+}
+); */
+
+
+this.employeService.listePoste().
+subscribe(postes => {this.poste = postes;
+console.log(postes);
+});
+
+
+
+
+
+
     this.myForm=this.formBuilder.group({
       idEmploye:['',[Validators.required]],
       email:['',[Validators.required ,Validators.email]],
@@ -44,14 +60,18 @@ export class AddEmployeComponent implements OnInit {
     });
   }
 
+
+
+
+
+
   addEmploye(){
-    this.newPoste =
-    this.employeService.consulterPoste(this.newIdPoste);
-    this.newEmploye.poste = this.newPoste;
-
-    this.employeService.ajouterEmploye(this.newEmploye);
-    this.router.navigate(["employe"]);
-
+    this.newEmploye.poste = this.poste.find(poss => poss.idPoste == this.newIdPoste)!;
+    this.employeService.ajouterEmploye(this.newEmploye)
+    .subscribe(emp => {
+    console.log(emp);
+    this.router.navigate(['employe']);
+    });
     }
     
 

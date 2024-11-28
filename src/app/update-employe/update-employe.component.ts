@@ -27,7 +27,21 @@ export class UpdateEmployeComponent implements OnInit {
 
 
   ngOnInit():void{
-    this.poste = this.employeService.listePoste();
+    
+
+/* 
+    this.employeService.listePoste().
+subscribe(postes => {this.poste = postes._embedded.poste;
+console.log(postes);
+}); */
+
+
+
+this.employeService.listePoste().
+subscribe(postes => {this.poste = postes;
+console.log(postes);
+});
+
 
     this.myForm = this.formBuilder.group({
       idEmploye: ['', [Validators.required]],
@@ -38,20 +52,29 @@ export class UpdateEmployeComponent implements OnInit {
       nomPoste: ['', [Validators.required]]  });
     
 
-    this.currentEmploye = this.employeService.consulterEmploye(this.activatedRoute.snapshot. params['id']);
-    console.log(this.currentEmploye);
-    this.updatedPostetId=this.currentEmploye.poste.idPoste;
+
+      this.employeService.consulterEmploye(this.activatedRoute.snapshot.params['id']).
+ subscribe( emp =>{ this.currentEmploye = emp; 
+  this.updatedPostetId=this.currentEmploye.poste.idPoste;
+
+
+
+
+ } ) ;
 
   } 
-  updateEmploye()
-  {
-    this.currentEmploye.poste=this.employeService.consulterPoste(this.updatedPostetId);
-
-      this.employeService.updateEmploye(this.currentEmploye);
-      this.router.navigate(['employe']);
 
 
-  }
+
+
+  updateEmploye() {
+    this.currentEmploye.poste = this.poste.
+ find(poss => poss.idPoste == this.updatedPostetId)!;
+    this.employeService.updateEmploye(this.currentEmploye).subscribe(emp => {
+    this.router.navigate(['employe']); }
+    );
+    }
+    
 
 }
   

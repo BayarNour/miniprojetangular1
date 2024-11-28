@@ -19,23 +19,39 @@ export class RechercheParPosteComponent implements OnInit {
   }
 
   ngOnInit():void{
-    this.poste=this.employeService.listePoste();
-    
+    this.employeService.listePoste().
+subscribe(postes => {this.poste = postes;
+console.log(postes);
+});
   }
  
   onChange() {
      
-     console.log(this.employe);
-     this.employe =  this.employeService.rechercherParPoste(this.IdPoste);
-     }
-     supprimerEmploye(e: Employe)
-     {
-       let conf =confirm("Etes-vous sur ?");
-       if(conf){
-        this.employeService.supprimerEmploye(e);
-        this.employe =  this.employeService.rechercherParPoste(this.IdPoste);
-       }
-      
-     }
+    this.employeService.rechercherParPoste(this.IdPoste).
+    subscribe(postes =>{this.employe=postes});
+  }    
 
+
+
+     
+    chargerEmploye(){
+      this.employeService.listeEmploye().subscribe(emp => {
+      console.log(emp);
+      this.employe = emp;
+      }); 
+      }
+      
+
+
+    
+    supprimerEmploye(e: Employe)
+    {
+    let conf = confirm("Etes-vous sûr ?");
+    if (conf)
+    this.employeService.supprimerEmploye(e.idEmploye).subscribe(() => {
+    console.log("employe supprimé");
+    this.chargerEmploye();
+
+    });
+    } 
 }
